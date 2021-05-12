@@ -1,0 +1,49 @@
+Um fotógrafo de uma empresa de turismo, efetuava imagens digitais de casais
+em férias acompanhados de seus filhos, para realizar o álbum para as famílias
+precisava arrumar os familiares, lado a lado para tirar uma foto, deforma que
+todos os filhos ficassem entre os pais, o fotógrafo precisava descobrir de quantos
+modos diferentes o número N de pessoas podem posar para tirar a foto. Você
+poderia escrever um programa para ajudá-lo?
+
+Entrada
+
+A entrada será composta por diversos casos de teste, onde a primeira linha
+deverá conter um número inteiro F (1 ≤ F ≤ 104
+), que corresponde ao número de
+famílias, em seguida, as próximas entradas devem ser de números inteiros N (
+3 ≤ N ≤ 10) que satisfaça a quantidade de pessoas de cada família.
+
+Saída
+
+A saída deve ser um número natural P positivo, que corresponde de quantos
+modos distintos, pessoas da mesma família, podem posar para a foto.  
+Exemplo de entrada   Saída para o exemplo de entrada
+3                      2
+3                      12
+5                      48
+6
+
+#include<bits/stdc++.h>
+#include <cctype>
+using namespace std;
+
+int main()
+{
+
+    int f, n, p;
+    cin >> f;
+    p =1;
+    while(f--){
+        cin >> n;
+        if(n != 3){
+            n = n-2;
+            p = 1;
+            for(int i = n; i >= 1; i--){
+                p *= i;
+            }
+            p *= 2;
+        }
+        cout << p << "\n";
+    }
+    return 0;
+}
